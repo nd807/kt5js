@@ -9,17 +9,22 @@ body{
     padding:30px;
 }
 
+h1{
+    margin-bottom:20px;
+}
+
 .container{
     display:flex;
     gap:50px;
     align-items:flex-start;
+    margin-bottom:40px;
 }
 
 form{
+    width:300px;
     display:flex;
     flex-direction:column;
     gap:10px;
-    width:300px;
 }
 
 input,
@@ -34,13 +39,14 @@ button{
 }
 
 .card-preview{
-    width:350px;
-    height:200px;
-    background:#1d3557;
+    width:380px;
+    height:220px;
+    background:linear-gradient(135deg,#1d3557,#457b9d);
+    border-radius:20px;
     color:white;
-    border-radius:15px;
     padding:20px;
     position:relative;
+    box-shadow:0 4px 10px rgba(0,0,0,0.3);
 }
 
 .bank-logo{
@@ -49,34 +55,50 @@ button{
 }
 
 .card-number{
-    margin-top:50px;
-    font-size:24px;
+    margin-top:60px;
+    font-size:28px;
     letter-spacing:2px;
 }
 
 .card-footer{
-    margin-top:30px;
-    display:flex;
-    justify-content:space-between;
-}
-
-.system-logo{
     position:absolute;
+    left:20px;
     right:20px;
     bottom:20px;
-    font-size:28px;
+
+    display:grid;
+    grid-template-columns:1fr auto auto;
+    gap:20px;
+    align-items:center;
+}
+
+#previewHolder{
+    text-transform:uppercase;
+}
+
+#previewDate{
+    white-space:nowrap;
+    font-size:18px;
+}
+
+#systemLogo{
+    font-size:24px;
     font-weight:bold;
+    white-space:nowrap;
 }
 
 table{
     width:100%;
-    margin-top:40px;
     border-collapse:collapse;
 }
 
 th,
 td{
-    border:1px solid #000;
+    border:1px solid #333;
     padding:10px;
     text-align:center;
+}
+
+th{
+    background:#f2f2f2;
 }

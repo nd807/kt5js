@@ -2,10 +2,13 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Банковская карта</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+<h1>Добавление банковской карты</h1>
 
 <div class="container">
 
@@ -19,7 +22,7 @@
         >
 
         <select id="system" required>
-            <option value="">Платежная система</option>
+            <option value="">Выберите платежную систему</option>
             <option value="VISA">VISA</option>
             <option value="MasterCard">MasterCard</option>
             <option value="МИР">МИР</option>
@@ -28,8 +31,8 @@
         <input
             type="text"
             id="number"
+            placeholder="Номер карты (16 цифр)"
             maxlength="16"
-            placeholder="Номер карты"
             required
         >
 
@@ -55,7 +58,7 @@
     <div class="card-preview">
 
         <div class="bank-logo" id="bankLogo">
-            Банк
+            БАНК
         </div>
 
         <div class="card-number" id="previewNumber">
@@ -63,6 +66,7 @@
         </div>
 
         <div class="card-footer">
+
             <span id="previewHolder">
                 HOLDER NAME
             </span>
@@ -70,10 +74,11 @@
             <span id="previewDate">
                 MM/YY
             </span>
-        </div>
 
-        <div class="system-logo" id="systemLogo">
-            VISA
+            <span id="systemLogo">
+                VISA
+            </span>
+
         </div>
 
     </div>

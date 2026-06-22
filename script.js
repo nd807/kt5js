@@ -1,87 +1,97 @@
-const form = document.getElementById('cardForm');
+const form = document.getElementById("cardForm");
 
-const bank = document.getElementById('bank');
-const system = document.getElementById('system');
-const number = document.getElementById('number');
-const holder = document.getElementById('holder');
-const date = document.getElementById('date');
+const bankInput = document.getElementById("bank");
+const systemInput = document.getElementById("system");
+const numberInput = document.getElementById("number");
+const holderInput = document.getElementById("holder");
+const dateInput = document.getElementById("date");
 
-const bankLogo = document.getElementById('bankLogo');
-const systemLogo = document.getElementById('systemLogo');
-const previewNumber = document.getElementById('previewNumber');
-const previewHolder = document.getElementById('previewHolder');
-const previewDate = document.getElementById('previewDate');
+const bankLogo = document.getElementById("bankLogo");
+const systemLogo = document.getElementById("systemLogo");
+const previewNumber = document.getElementById("previewNumber");
+const previewHolder = document.getElementById("previewHolder");
+const previewDate = document.getElementById("previewDate");
 
-const tableBody =
-document.querySelector('#cardsTable tbody');
+const tableBody = document.querySelector("#cardsTable tbody");
 
-bank.addEventListener('input', () => {
-    bankLogo.textContent = bank.value || 'Банк';
+bankInput.addEventListener("input", () => {
+    bankLogo.textContent =
+        bankInput.value || "БАНК";
 });
 
-system.addEventListener('change', () => {
-    systemLogo.textContent = system.value || 'VISA';
+systemInput.addEventListener("change", () => {
+    systemLogo.textContent =
+        systemInput.value || "VISA";
 });
 
-number.addEventListener('input', () => {
+numberInput.addEventListener("input", () => {
 
-    let value = number.value.replace(/\D/g,'');
+    let value = numberInput.value.replace(/\D/g, "");
 
-    value = value.substring(0,16);
+    value = value.slice(0, 16);
 
-    number.value = value;
+    numberInput.value = value;
+
+    let formatted = value.replace(
+        /(\d{4})(?=\d)/g,
+        "$1 "
+    );
 
     previewNumber.textContent =
-        value.replace(/(\d{4})(?=\d)/g,'$1 ');
-
-    if(value.length === 0){
-        previewNumber.textContent =
-        '0000 0000 0000 0000';
-    }
+        formatted || "0000 0000 0000 0000";
 });
 
-holder.addEventListener('input', () => {
+holderInput.addEventListener("input", () => {
     previewHolder.textContent =
-    holder.value.toUpperCase() || 'HOLDER NAME';
+        holderInput.value.toUpperCase() ||
+        "HOLDER NAME";
 });
 
-date.addEventListener('change', () => {
+dateInput.addEventListener("change", () => {
 
-    if(date.value){
+    if(dateInput.value){
 
-        const parts = date.value.split('-');
+        const parts =
+            dateInput.value.split("-");
+
+        const year =
+            parts[0].slice(2);
+
+        const month =
+            parts[1];
 
         previewDate.textContent =
-        parts[1] + '/' + parts[0].slice(2);
-
+            `${month}/${year}`;
     }
+
 });
 
-form.addEventListener('submit', (event) => {
+form.addEventListener("submit", (event) => {
 
     event.preventDefault();
 
-    const row = document.createElement('tr');
+    const row =
+        document.createElement("tr");
 
     row.innerHTML = `
-        <td>${bank.value}</td>
-        <td>${system.value}</td>
-        <td>${number.value}</td>
-        <td>${holder.value}</td>
+        <td>${bankInput.value}</td>
+        <td>${systemInput.value}</td>
+        <td>${previewNumber.textContent}</td>
+        <td>${holderInput.value}</td>
         <td>${previewDate.textContent}</td>
     `;
 
-    tableBody.append(row);
+    tableBody.appendChild(row);
 
     form.reset();
 
-    bankLogo.textContent = 'Банк';
-    systemLogo.textContent = 'VISA';
+    bankLogo.textContent = "БАНК";
+    systemLogo.textContent = "VISA";
     previewNumber.textContent =
-    '0000 0000 0000 0000';
+        "0000 0000 0000 0000";
     previewHolder.textContent =
-    'HOLDER NAME';
+        "HOLDER NAME";
     previewDate.textContent =
-    'MM/YY';
+        "MM/YY";
 
 });
