@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Банковская карта</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <form id="cardForm">
+
+        <input
+            type="text"
+            id="bank"
+            placeholder="Название банка"
+            required
+        >
+
+        <select id="system" required>
+            <option value="">Платежная система</option>
+            <option value="VISA">VISA</option>
+            <option value="MasterCard">MasterCard</option>
+            <option value="МИР">МИР</option>
+        </select>
+
+        <input
+            type="text"
+            id="number"
+            maxlength="16"
+            placeholder="Номер карты"
+            required
+        >
+
+        <input
+            type="text"
+            id="holder"
+            placeholder="Имя держателя"
+            required
+        >
+
+        <input
+            type="month"
+            id="date"
+            required
+        >
+
+        <button type="submit">
+            Добавить карту
+        </button>
+
+    </form>
+
+    <div class="card-preview">
+
+        <div class="bank-logo" id="bankLogo">
+            Банк
+        </div>
+
+        <div class="card-number" id="previewNumber">
+            0000 0000 0000 0000
+        </div>
+
+        <div class="card-footer">
+            <span id="previewHolder">
+                HOLDER NAME
+            </span>
+
+            <span id="previewDate">
+                MM/YY
+            </span>
+        </div>
+
+        <div class="system-logo" id="systemLogo">
+            VISA
+        </div>
+
+    </div>
+
+</div>
+
+<table id="cardsTable">
+
+    <thead>
+        <tr>
+            <th>Банк</th>
+            <th>Платежная система</th>
+            <th>Номер карты</th>
+            <th>Держатель</th>
+            <th>Срок действия</th>
+        </tr>
+    </thead>
+
+    <tbody></tbody>
+
+</table>
+
+<script src="script.js"></script>
+
+</body>
+</html>
